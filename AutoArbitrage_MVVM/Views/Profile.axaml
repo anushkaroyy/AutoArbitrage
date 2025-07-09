@@ -1,0 +1,146 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:AutoArbitrage_MVVM.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1080" d:DesignHeight="621"
+             Width="1080" Height="621"
+             x:Class="AutoArbitrage_MVVM.Views.Profile"
+             x:DataType="viewModels:ProfileViewModel"
+             Background="#121528">
+    
+     <Grid VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Image Source="/Assets/user-square.png" 
+                   Height="250.5" Width="250.5" Margin="39,10,0,0"/>
+            <StackPanel Orientation="Vertical" Margin="22.5,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Name="FullName" Foreground="#FFFFFF" FontSize="61.5" Text="{Binding Name}" FontWeight="SemiBold" Margin="0,170.75,0,0" />
+              <TextBlock Foreground="Orange" FontSize="18" Text="{Binding Joined}" />
+            </StackPanel>
+        </StackPanel>
+
+         <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+             
+             <Grid.ColumnDefinitions>*,*,*,*</Grid.ColumnDefinitions>
+             
+             <StackPanel Grid.Column="0" Margin="0,35,0,0">
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Foreground="Orange" FontSize="22" Text="Email Address: " Margin="39,39,0,0"/>
+                     <TextBlock Name="Email" Foreground="#FFFFFF" FontWeight="Light" FontSize="18" Width="300" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding DisplayEmail}" Margin="0,39,0,0" Opacity="1"/>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Foreground="Orange" FontSize="22" Text="Phone Number: " Margin="39,39,0,0"/>
+                     <TextBlock Name="Phone" Foreground="#FFFFFF" FontSize="18" Width="300" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding Phone}" Margin="0,39,0,0" Opacity="1"/>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Foreground="Orange" FontSize="22" Text="Binance API Key: " Margin="39,39,0,0"/>
+                     <TextBlock Name="BinanceKey" Foreground="#FFFFFF" FontSize="18" Width="300" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding BinanceKey}" Margin="0,39,0,0" Opacity="1"/>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Foreground="Orange" FontSize="22" Text="Bybit API Key: " Margin="39,39,0,0"/>
+                     <TextBlock Name="BybitKey" Foreground="#FFFFFF" FontSize="18" Width="300" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Text="{Binding BybitKey}" Margin="0,39,0,0" Opacity="1"/>
+                 </StackPanel>
+             </StackPanel>
+             
+             <StackPanel Grid.Column="1" Margin="0,35,0,0">
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding DisplayEmail, Mode=TwoWay}" Name="EmailBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding DisplayEmail}"></TextBox>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding Phone, Mode=TwoWay}" Name="PhoneBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding Phone}"></TextBox>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding BinanceKey, Mode=TwoWay}" Name="BinanceKeyBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding BinanceKey}"></TextBox>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding BybitKey, Mode=TwoWay}" Name="BybitKeyBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0"  VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding BybitKey}"></TextBox>
+                 </StackPanel>
+             </StackPanel>
+             
+             <StackPanel Grid.Column="2" Margin="0,35,0,0">
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Name="NameLabel" FontSize="22" Foreground="Orange" Text="Name: " Margin="39,39,0,0" Opacity="0"/>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Name="BiSecLabel" FontSize="22" Foreground="Orange" Text="Binance Secret: " Margin="39,39,0,0" Opacity="0"/>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBlock Name="BySecLabel" FontSize="22" Foreground="Orange" Text="Bybit Secret: " Margin="39,39,0,0" Opacity="0"/>
+                 </StackPanel>
+                 
+             </StackPanel>
+             
+             <StackPanel Grid.Column="3" Margin="0,35,0,0">
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding Name, Mode=TwoWay}" Name="NameBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding Name}"></TextBox>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding BinanceSecret, Mode=TwoWay}" Name="BinanceSecretBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding BinanceSecret}"></TextBox>
+                 </StackPanel>
+                 
+                 <StackPanel Orientation="Horizontal">
+                     <TextBox Text="{Binding BybitSecret, Mode=TwoWay}" Name="BybitSecretBox" Height="32" FontSize="14" Width="250" Margin="0,39,0,0" VerticalContentAlignment="Top" Opacity="0" Watermark="{Binding BybitSecret}"></TextBox>
+                 </StackPanel>
+                     
+             </StackPanel>
+             
+         </Grid>
+
+         <Grid Grid.Row="1" Grid.Column="1"  >
+         
+        <Button 
+                Name="EditInfo"
+                CornerRadius="12" 
+                Height="37.5" Width="95" 
+                Background="#FFFFFF" 
+                Foreground="#0E0E22"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                FontSize="18"
+                Margin="414.5,305,0,0"
+                Opacity="1"
+                Click="EditInfo_OnClick"
+                Content="Edit Info"
+                ZIndex="1"/>
+        
+        <Button  
+                Name="SaveInfo"
+                CornerRadius="12" 
+                Height="37.5" Width="95" 
+                Background="Orange" 
+                Foreground="White"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                FontSize="18"
+                Margin="414.5,305,0,0"
+                Opacity="0"
+                Click="SaveInfo_OnClick"
+                Command="{Binding SaveInfo}"
+                Content="Save Info"
+                ZIndex="0"/>
+        
+         </Grid>
+
+        
+    </Grid>
+    
+</UserControl>

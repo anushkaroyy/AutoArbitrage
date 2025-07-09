@@ -1,0 +1,94 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:AutoArbitrage_MVVM.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1080" d:DesignHeight="621"
+             x:DataType="viewModels:TransactionsViewModel"
+             x:Class="AutoArbitrage_MVVM.Views.Transactions">
+    
+    <Grid Background="#121528">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Header Section -->
+        <TextBlock Grid.Row="0" Text="All Transactions" FontSize="24" FontWeight="Bold" 
+                   Foreground="White" HorizontalAlignment="Left" Margin="24,0,0,30"/>
+
+        <!-- Headers Row -->
+		<Grid Grid.Row="1" Background="#0B0B14" VerticalAlignment="Center">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Price" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="1" Text="Quantity" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="2" Text="Exchange" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="3" Text="Currency" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="4" Text="Action" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="5" Text="Profit" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="6" Text="Date" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<TextBlock Grid.Column="7" Text="Time" FontWeight="SemiBold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		</Grid>
+
+        <!-- Orders List -->
+		<Grid Grid.Row="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1000" />
+			</Grid.RowDefinitions>
+			<ItemsControl ItemsSource="{Binding Orders}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Grid Margin="0, 5, 0, 5">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock Text="{Binding Price}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="1" Text="{Binding Quantity}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="2" Text="{Binding Exchange}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="3" Text="{Binding Currency}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="4" Text="{Binding Action}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="5" Text="{Binding Profit}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="6" Text="{Binding Date}" HorizontalAlignment="Center" />
+							<TextBlock Grid.Column="7" Text="{Binding Time}" HorizontalAlignment="Center" />
+						</Grid>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</Grid>
+    </Grid>
+</UserControl>
